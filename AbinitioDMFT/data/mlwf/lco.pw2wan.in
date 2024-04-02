@@ -6,4 +6,5 @@
    write_amn    = .true.
    write_spn    = .false.
    write_unk    = .false.
+   irr_bz       = .true.
 /
