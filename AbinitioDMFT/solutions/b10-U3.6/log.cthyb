@@ -1,0 +1,977 @@
+Reading the config file dmft_config.toml
+
+general parameters
+    afm_order                      False
+    beta                           10
+    block_threshold                1e-05
+    broy_max_it                    -1
+    calc_energies                  False
+    calc_mu_method                 dichotomy
+    csc                            False
+    dc                             True
+    dc_dmft                        False
+    dc_type                        0
+    dlr_eps                        None
+    dlr_wmax                       None
+    enforce_off_diag               True
+    eta                            None
+    fixed_mu_value                 None
+    g0_conv_crit                   -1.0
+    g0_mix                         1.0
+    g0_mix_type                    linear
+    gimp_conv_crit                 -1.0
+    gw_embedding                   False
+    h_field                        0.0
+    h_field_it                     0
+    h_int_basis                    triqs
+    h_int_type                     kanamori
+    h5_save_freq                   1
+    J                              0.0
+    jobname                        b10-U3.6
+    load_sigma                     False
+    load_sigma_iter                -1
+    magmom                         None
+    magnetic                       False
+    mu_gap_gb2_threshold           None
+    mu_gap_occ_deviation           None
+    mu_initial_guess               12.8
+    mu_mix_const                   1.0
+    mu_mix_per_occupation_offset   0.0
+    mu_update_freq                 1
+    n_iter_dmft                    6
+    n_iter_dmft_first              10
+    n_iter_dmft_per                2
+    n_iw                           251
+    n_tau                          5001
+    n_w                            5001
+    noise_level_initial_sigma      0.0
+    occ_conv_crit                  -1.0
+    path_to_sigma                  None
+    prec_mu                        0.0001
+    ratio_F4_F2                    None
+    sampling_h5_save_freq          5
+    sampling_iterations            0
+    seedname                       lco_wannier
+    set_rot                        None
+    sigma_conv_crit                -1.0
+    sigma_mix                      1.0
+    store_solver                   False
+    U                              3.6
+    U_crpa_threshold               0.0
+    U_prime                        None
+    w_range                        [-10, 10]
+
+solver parameters
+entry 1
+    type                           cthyb
+    crm_dyson_solver               False
+    delta_interface                True
+    diag_delta                     False
+    fit_max_moment                 4
+    fit_max_n                      None
+    fit_max_w                      12
+    fit_min_n                      None
+    fit_min_w                      6
+    idx_impurities                 None
+    imag_threshold                 1e-06
+    legendre_fit                   False
+    length_cycle                   60
+    loc_n_max                      None
+    loc_n_min                      None
+    max_time                       -1
+    measure_chi_insertions         100
+    measure_chi                    None
+    measure_density_matrix         True
+    measure_G_l                    False
+    measure_pert_order             False
+    move_double                    True
+    move_shift                     False
+    n_cycles_tot                   2000000.0
+    n_l                            None
+    n_warmup_cycles                10000.0
+    off_diag_threshold             0.0
+    perform_tail_fit               True
+    random_seed                    None
+
+
+################################################################################
+Using input file "lco_wannier.h5" and running in folder "b10-U3.6".
+Running solid_dmft on imag-freq grid because "general.beta" specified
+INITIAL DMFT RUN
+################################################################################ 
+
+Checking parameters that are impurity-dependent
+Assuming U = 3.60 for all correlated shells
+Assuming J = 0.00 for all correlated shells
+Assuming U_prime = None for all correlated shells
+Assuming ratio_F4_F2 = None for all correlated shells
+Assuming h_int_type = kanamori for all correlated shells
+Assuming enforce_off_diag = True for all correlated shells
+Assuming dc_type = 0 for all correlated shells
+Assuming dc_U = 3.60 for all correlated shells
+Assuming dc_J = 0.00 for all correlated shells
+Assuming dc_fixed_occ = None for all correlated shells
+Assuming map_solver_struct = None for all correlated shells
+Assuming pick_solver_struct = None for all correlated shells
+Assuming mapped_solver_struct_degeneracies = None for all correlated shells
+
+Solver type per impurity: ['cthyb']
+
+Initial chemical potential set to 12.800 eV
+
+
+sumk calc_mu: Using dichtomy adjustment to find chemical potential
+
+Dichotomy adjustment of Chemical Potential to obtain Total Density = 1.000000 +/- 0.000100
+Warning: Imaginary part in density will be ignored (5.539895109938829e-14)
+Warning: Imaginary part in density will be ignored (6.234585733501098e-14)
+    Chemical Potential = 12.300000  
+    Total Density = 0.459843
+    12.300000 < Chemical Potential < 12.800000
+    0.459843 < Total Density < 1.003070
+Warning: Imaginary part in density will be ignored (5.3953286383515207e-14)
+    12.797175 < Chemical Potential < 12.800000
+    0.999914 < Total Density < 1.003070
+    Chemical Potential found in 2 iterations : 
+    Total Density = 0.999914;Chemical Potential = 12.797175
+Total density for imp 0 from DFT:   0.999914
+
+ *** Determination of block structure ***
+using 1-particle density matrix and Hloc (atomic levels) to determine the block structure
+
+ number of ineq. correlated shells: 1
+
+ block structure summary
+ -- Shell type #  0: [0]
+  | shell multiplicity 1
+  | block struct. sum_k : [('up', 1), ('down', 1)]
+  | block struct. solver: {'up_0': 1, 'down_0': 1}
+  | deg. orbitals : [['up_0', 'down_0']]
+
+Rotation matrices
+rot_mat[ 0] real part  imaginary part
+             1.00000    0.00000
+
+
+
+Effective atomic levels
+H_loc[ 0]       up       down  
+             0.09845    0.09845
+
+
+
+DFT density matrix
+rho[ 0]         up       down  
+             0.49996    0.49996
+
+
+*** interaction parameters ***
+
+Constructing the interaction Hamiltonians
+
+Impurity 0: constructing a kanamori type interaction Hamiltonian
+warning: are you sure you want to use the kanamori hamiltonian outside the t2g or eg manifold?
+U = 3.60, U' = 3.60, J = 0.00
+
+
+*** DC determination ***
+
+Calculating standard DC for impurity 0 with U=3.6 and J=0.0
+Detected use_dc_formula=0, changing to sFLL
+DC potential computed using the sFLL method, V_DC = 1.799691 eV
+E_DC using the sFLL method, E_DC = -0.000154 eV
+DC potential computed using the sFLL method, V_DC = 1.799691 eV
+E_DC using the sFLL method, E_DC = -0.000154 eV
+
+sumk calc_mu: Using dichtomy adjustment to find chemical potential
+
+Dichotomy adjustment of Chemical Potential to obtain Total Density = 1.000000 +/- 0.000100
+Warning: Imaginary part in density will be ignored (5.3953286383515207e-14)
+    12.797175 < Chemical Potential < 12.797175
+    0.999914 < Total Density < 0.999914
+    Chemical Potential found in 0 iterations : 
+    Total Density = 0.999914;Chemical Potential = 12.797175
+
+ 6 DMFT cycles requested. Starting with iteration  1.
+
+################################################################################
+Running iteration: 1 / 6
+
+ *** Correlated Shell type #  0 : Estimated total charge of impurity problem = 0.999914
+Estimated density matrix:
+down_0, real part
+[[0.49995714]]
+up_0, real part
+[[0.49995714]]
+
+ Using the delta interface for cthyb passing Delta(tau) and Hloc0 directly.
+
+Solving the impurity problem for shell 0 ...
+
+╔╦╗╦═╗╦╔═╗ ╔═╗  ┌─┐┌┬┐┬ ┬┬ ┬┌┐ 
+ ║ ╠╦╝║║═╬╗╚═╗  │   │ ├─┤└┬┘├┴┐
+ ╩ ╩╚═╩╚═╝╚╚═╝  └─┘ ┴ ┴ ┴ ┴ └─┘
+
+The local Hamiltonian of the problem:
+-1.70124*c_dag('down_0',0)*c('down_0',0) + -1.70124*c_dag('up_0',0)*c('up_0',0) + 3.6*c_dag('down_0',0)*c_dag('up_0',0)*c('up_0',0)*c('down_0',0)
+Using autopartition algorithm to partition the local Hilbert space
+Found 4 subspaces.
+
+Warming up ...
+15:33:51  14% ETA 00:00:00 cycle 1477 of 10000
+15:33:52 100% ETA 00:00:00 cycle 9999 of 10000
+
+
+
+Accumulating ...
+15:33:52   0% ETA 00:00:19 cycle 1256 of 250000
+15:33:54  12% ETA 00:00:14 cycle 31826 of 250000
+15:33:56  28% ETA 00:00:11 cycle 70135 of 250000
+15:34:00  47% ETA 00:00:08 cycle 117868 of 250000
+15:34:03  70% ETA 00:00:04 cycle 177417 of 250000
+15:34:08 100% ETA 00:00:00 cycle 249999 of 250000
+
+
+[Rank 0] Collect results: Waiting for all mpi-threads to finish accumulating...
+[Rank 0] Timings for all measures:
+Measure                                    | seconds   
+Auto-correlation time                      | 0.0793363 
+Average order                              | 0.00877134
+Average sign                               | 0.00809812
+Density Matrix for local static observable | 0.355284  
+G_tau measure                              | 0.058187  
+Total measure time                         | 0.509677  
+[Rank 0] Acceptance rate for all moves:
+Move set Insert two operators: 0.11673
+  Move  Insert Delta_down_0: 0.116711
+  Move  Insert Delta_up_0: 0.116749
+Move set Remove two operators: 0.116762
+  Move  Remove Delta_down_0: 0.116776
+  Move  Remove Delta_up_0: 0.116748
+Move set Insert four operators: 0.0266609
+  Move  Insert Delta_down_0_down_0: 0.0235013
+  Move  Insert Delta_down_0_up_0: 0.0298839
+  Move  Insert Delta_up_0_down_0: 0.0298494
+  Move  Insert Delta_up_0_up_0: 0.0234097
+Move set Remove four operators: 0.0266433
+  Move  Remove Delta_down_0_down_0: 0.0234638
+  Move  Remove Delta_down_0_up_0: 0.0298689
+  Move  Remove Delta_up_0_down_0: 0.0297466
+  Move  Remove Delta_up_0_up_0: 0.0234916
+[Rank 0] Warmup lasted: 0.654488 seconds [00:00:00]
+[Rank 0] Simulation lasted: 16.5977 seconds [00:00:16]
+[Rank 0] Number of measures: 250000
+Total number of measures: 2000000
+Average sign: 1
+Average order: 4.45026
+Auto-correlation time: 1.86846
+Actual time for solver: 17.93 s
+
+Total charge of impurity problem: 0.98686
+Total charge convergency of impurity problem: -0.01305
+
+Density matrix:
+down_0, real part
+[[0.49278347]]
+eigenvalues: [0.49278347]
+up_0, real part
+[[0.49408051]]
+eigenvalues: [0.49408051]
+
+ *** Post-processing the solver output ***
+Total charge of all correlated shells : 0.986864
+
+
+sumk calc_mu: Using dichtomy adjustment to find chemical potential
+
+Dichotomy adjustment of Chemical Potential to obtain Total Density = 1.000000 +/- 0.000100
+Warning: Imaginary part in density will be ignored (5.987065236004749e-14)
+Warning: Imaginary part in density will be ignored (6.06685045308579e-14)
+    Chemical Potential = 13.297175  
+    Total Density = 1.196160
+    12.797175 < Chemical Potential < 13.297175
+    0.965236 < Total Density < 1.196160
+Warning: Imaginary part in density will be ignored (6.120745964138636e-14)
+    12.797175 < Chemical Potential < 12.872446
+    0.965236 < Total Density < 1.001040
+Warning: Imaginary part in density will be ignored (6.095880744440684e-14)
+    12.797175 < Chemical Potential < 12.870258
+    0.965236 < Total Density < 1.000001
+    Chemical Potential found in 3 iterations : 
+    Total Density = 1.000001;Chemical Potential = 12.870258
+Mixing dichotomy mu with previous iteration by factor 1.000
+New chemical potential: 12.870
+
+ *** calculation of observables ***
+*** iteration finished ***
+============================================================
+summary of impurity observables:
+total occupany of impurity 0:  0.9869
+G(beta/2) occ of impurity 0:  -0.1516
+Z (simple estimate) of impurity 0 per orb:
+   up:  0.789
+ down:  0.789
+============================================================
+
+============================================================
+convergence:
+δμ:      0.0000e+00
+Impurity 0:
+δn imp : 1.3050e-02
+δn orb : 1.3050e-02
+δ Gimp : 2.1338e-01
+δ G0   : 3.1167e-01
+δ Σ    : 8.3178e-01
+============================================================
+
+
+################################################################################
+Running iteration: 2 / 6
+
+ *** Correlated Shell type #  0 : Estimated total charge of impurity problem = 1.000001
+Estimated density matrix:
+down_0, real part
+[[0.50000067]]
+up_0, real part
+[[0.50000067]]
+
+ Using the delta interface for cthyb passing Delta(tau) and Hloc0 directly.
+
+Solving the impurity problem for shell 0 ...
+
+╔╦╗╦═╗╦╔═╗ ╔═╗  ┌─┐┌┬┐┬ ┬┬ ┬┌┐ 
+ ║ ╠╦╝║║═╬╗╚═╗  │   │ ├─┤└┬┘├┴┐
+ ╩ ╩╚═╩╚═╝╚╚═╝  └─┘ ┴ ┴ ┴ ┴ └─┘
+
+The local Hamiltonian of the problem:
+-1.77433*c_dag('down_0',0)*c('down_0',0) + -1.77433*c_dag('up_0',0)*c('up_0',0) + 3.6*c_dag('down_0',0)*c_dag('up_0',0)*c('up_0',0)*c('down_0',0)
+Using autopartition algorithm to partition the local Hilbert space
+Found 4 subspaces.
+
+Warming up ...
+15:34:09  13% ETA 00:00:00 cycle 1371 of 10000
+15:34:10 100% ETA 00:00:00 cycle 9999 of 10000
+
+
+
+Accumulating ...
+15:34:10   0% ETA 00:00:15 cycle 1578 of 250000
+15:34:12  13% ETA 00:00:13 cycle 33719 of 250000
+15:34:15  29% ETA 00:00:10 cycle 74563 of 250000
+15:34:18  50% ETA 00:00:07 cycle 126290 of 250000
+15:34:22  75% ETA 00:00:03 cycle 189749 of 250000
+15:34:25 100% ETA 00:00:00 cycle 249999 of 250000
+
+
+[Rank 0] Collect results: Waiting for all mpi-threads to finish accumulating...
+[Rank 0] Timings for all measures:
+Measure                                    | seconds   
+Auto-correlation time                      | 0.0780268 
+Average order                              | 0.00924009
+Average sign                               | 0.0080218 
+Density Matrix for local static observable | 0.336568  
+G_tau measure                              | 0.04784   
+Total measure time                         | 0.479696  
+[Rank 0] Acceptance rate for all moves:
+Move set Insert two operators: 0.119146
+  Move  Insert Delta_down_0: 0.119097
+  Move  Insert Delta_up_0: 0.119195
+Move set Remove two operators: 0.119269
+  Move  Remove Delta_down_0: 0.119229
+  Move  Remove Delta_up_0: 0.119308
+Move set Insert four operators: 0.0283635
+  Move  Insert Delta_down_0_down_0: 0.0228595
+  Move  Insert Delta_down_0_up_0: 0.0339287
+  Move  Insert Delta_up_0_down_0: 0.0338786
+  Move  Insert Delta_up_0_up_0: 0.0227819
+Move set Remove four operators: 0.028325
+  Move  Remove Delta_down_0_down_0: 0.0227855
+  Move  Remove Delta_down_0_up_0: 0.0338465
+  Move  Remove Delta_up_0_down_0: 0.0339511
+  Move  Remove Delta_up_0_up_0: 0.022715
+[Rank 0] Warmup lasted: 0.620991 seconds [00:00:00]
+[Rank 0] Simulation lasted: 15.5299 seconds [00:00:15]
+[Rank 0] Number of measures: 250000
+Total number of measures: 2000000
+Average sign: 1
+Average order: 3.59481
+Auto-correlation time: 1.33416
+Actual time for solver: 16.37 s
+
+Total charge of impurity problem: 0.99454
+Total charge convergency of impurity problem: -0.00546
+
+Density matrix:
+down_0, real part
+[[0.49659424]]
+eigenvalues: [0.49659424]
+up_0, real part
+[[0.49794765]]
+eigenvalues: [0.49794765]
+
+ *** Post-processing the solver output ***
+Total charge of all correlated shells : 0.994542
+
+
+sumk calc_mu: Using dichtomy adjustment to find chemical potential
+
+Dichotomy adjustment of Chemical Potential to obtain Total Density = 1.000000 +/- 0.000100
+Warning: Imaginary part in density will be ignored (6.36918845395533e-14)
+Warning: Imaginary part in density will be ignored (6.475692296941522e-14)
+    Chemical Potential = 13.370258  
+    Total Density = 1.196519
+    12.870258 < Chemical Potential < 13.370258
+    0.992654 < Total Density < 1.196519
+Warning: Imaginary part in density will be ignored (6.289012032214878e-14)
+    12.870258 < Chemical Potential < 12.888276
+    0.992654 < Total Density < 1.000186
+Warning: Imaginary part in density will be ignored (6.292854122683519e-14)
+    12.870258 < Chemical Potential < 12.887832
+    0.992654 < Total Density < 1.000000
+    Chemical Potential found in 3 iterations : 
+    Total Density = 1.000000;Chemical Potential = 12.887832
+Mixing dichotomy mu with previous iteration by factor 1.000
+New chemical potential: 12.888
+
+ *** calculation of observables ***
+*** iteration finished ***
+============================================================
+summary of impurity observables:
+total occupany of impurity 0:  0.9945
+G(beta/2) occ of impurity 0:  -0.1285
+Z (simple estimate) of impurity 0 per orb:
+   up:  0.788
+ down:  0.788
+============================================================
+
+============================================================
+convergence:
+δμ:      7.3084e-02
+Impurity 0:
+δn imp : 7.6779e-03
+δn orb : 7.6779e-03
+δ Gimp : 3.3230e-02
+δ G0   : 1.1085e-02
+δ Σ    : 1.4059e-01
+============================================================
+
+
+################################################################################
+Running iteration: 3 / 6
+
+ *** Correlated Shell type #  0 : Estimated total charge of impurity problem = 1.000000
+Estimated density matrix:
+down_0, real part
+[[0.50000002]]
+up_0, real part
+[[0.50000002]]
+
+ Using the delta interface for cthyb passing Delta(tau) and Hloc0 directly.
+
+Solving the impurity problem for shell 0 ...
+
+╔╦╗╦═╗╦╔═╗ ╔═╗  ┌─┐┌┬┐┬ ┬┬ ┬┌┐ 
+ ║ ╠╦╝║║═╬╗╚═╗  │   │ ├─┤└┬┘├┴┐
+ ╩ ╩╚═╩╚═╝╚╚═╝  └─┘ ┴ ┴ ┴ ┴ └─┘
+
+The local Hamiltonian of the problem:
+-1.7919*c_dag('down_0',0)*c('down_0',0) + -1.7919*c_dag('up_0',0)*c('up_0',0) + 3.6*c_dag('down_0',0)*c_dag('up_0',0)*c('up_0',0)*c('down_0',0)
+Using autopartition algorithm to partition the local Hilbert space
+Found 4 subspaces.
+
+Warming up ...
+15:34:26  17% ETA 00:00:00 cycle 1734 of 10000
+15:34:27 100% ETA 00:00:00 cycle 9999 of 10000
+
+
+
+Accumulating ...
+15:34:27   0% ETA 00:00:17 cycle 1459 of 250000
+15:34:29  14% ETA 00:00:12 cycle 35806 of 250000
+15:34:31  31% ETA 00:00:10 cycle 78621 of 250000
+15:34:34  52% ETA 00:00:07 cycle 131914 of 250000
+15:34:38  79% ETA 00:00:03 cycle 198756 of 250000
+15:34:41 100% ETA 00:00:00 cycle 249999 of 250000
+
+
+[Rank 0] Collect results: Waiting for all mpi-threads to finish accumulating...
+[Rank 0] Timings for all measures:
+Measure                                    | seconds   
+Auto-correlation time                      | 0.0762328 
+Average order                              | 0.00927678
+Average sign                               | 0.00713984
+Density Matrix for local static observable | 0.32501   
+G_tau measure                              | 0.0449479 
+Total measure time                         | 0.462608  
+[Rank 0] Acceptance rate for all moves:
+Move set Insert two operators: 0.118155
+  Move  Insert Delta_down_0: 0.11807
+  Move  Insert Delta_up_0: 0.11824
+Move set Remove two operators: 0.11812
+  Move  Remove Delta_down_0: 0.11806
+  Move  Remove Delta_up_0: 0.11818
+Move set Insert four operators: 0.0278712
+  Move  Insert Delta_down_0_down_0: 0.0221182
+  Move  Insert Delta_down_0_up_0: 0.0336297
+  Move  Insert Delta_up_0_down_0: 0.033718
+  Move  Insert Delta_up_0_up_0: 0.0220254
+Move set Remove four operators: 0.0279044
+  Move  Remove Delta_down_0_down_0: 0.0220842
+  Move  Remove Delta_down_0_up_0: 0.0337832
+  Move  Remove Delta_up_0_down_0: 0.0336729
+  Move  Remove Delta_up_0_up_0: 0.0220761
+[Rank 0] Warmup lasted: 0.586824 seconds [00:00:00]
+[Rank 0] Simulation lasted: 14.8552 seconds [00:00:14]
+[Rank 0] Number of measures: 250000
+Total number of measures: 2000000
+Average sign: 1
+Average order: 3.379
+Auto-correlation time: 1.39777
+Actual time for solver: 15.80 s
+
+Total charge of impurity problem: 0.99687
+Total charge convergency of impurity problem: -0.00313
+
+Density matrix:
+down_0, real part
+[[0.49805574]]
+eigenvalues: [0.49805574]
+up_0, real part
+[[0.49881377]]
+eigenvalues: [0.49881377]
+
+ *** Post-processing the solver output ***
+Total charge of all correlated shells : 0.996870
+
+
+sumk calc_mu: Using dichtomy adjustment to find chemical potential
+
+Dichotomy adjustment of Chemical Potential to obtain Total Density = 1.000000 +/- 0.000100
+Warning: Imaginary part in density will be ignored (6.061840011086872e-14)
+Warning: Imaginary part in density will be ignored (6.047019219356292e-14)
+    Chemical Potential = 13.387832  
+    Total Density = 1.191559
+    12.887832 < Chemical Potential < 13.387832
+    0.996413 < Total Density < 1.191559
+Warning: Imaginary part in density will be ignored (6.19762100954714e-14)
+    12.887832 < Chemical Potential < 12.897023
+    0.996413 < Total Density < 1.000078
+    Chemical Potential found in 2 iterations : 
+    Total Density = 1.000078;Chemical Potential = 12.897023
+Mixing dichotomy mu with previous iteration by factor 1.000
+New chemical potential: 12.897
+
+ *** calculation of observables ***
+*** iteration finished ***
+============================================================
+summary of impurity observables:
+total occupany of impurity 0:  0.9969
+G(beta/2) occ of impurity 0:  -0.1149
+Z (simple estimate) of impurity 0 per orb:
+   up:  0.861
+ down:  0.861
+============================================================
+
+============================================================
+convergence:
+δμ:      1.7573e-02
+Impurity 0:
+δn imp : 2.3276e-03
+δn orb : 2.3276e-03
+δ Gimp : 1.3604e-02
+δ G0   : 3.6858e-03
+δ Σ    : 6.1277e-02
+============================================================
+
+
+################################################################################
+Running iteration: 4 / 6
+
+ *** Correlated Shell type #  0 : Estimated total charge of impurity problem = 1.000078
+Estimated density matrix:
+down_0, real part
+[[0.5000388]]
+up_0, real part
+[[0.5000388]]
+
+ Using the delta interface for cthyb passing Delta(tau) and Hloc0 directly.
+
+Solving the impurity problem for shell 0 ...
+
+╔╦╗╦═╗╦╔═╗ ╔═╗  ┌─┐┌┬┐┬ ┬┬ ┬┌┐ 
+ ║ ╠╦╝║║═╬╗╚═╗  │   │ ├─┤└┬┘├┴┐
+ ╩ ╩╚═╩╚═╝╚╚═╝  └─┘ ┴ ┴ ┴ ┴ └─┘
+
+The local Hamiltonian of the problem:
+-1.80109*c_dag('down_0',0)*c('down_0',0) + -1.80109*c_dag('up_0',0)*c('up_0',0) + 3.6*c_dag('down_0',0)*c_dag('up_0',0)*c('up_0',0)*c('down_0',0)
+Using autopartition algorithm to partition the local Hilbert space
+Found 4 subspaces.
+
+Warming up ...
+15:34:42  16% ETA 00:00:00 cycle 1678 of 10000
+15:34:43 100% ETA 00:00:00 cycle 9999 of 10000
+
+
+
+Accumulating ...
+15:34:43   0% ETA 00:00:16 cycle 1468 of 250000
+15:34:45  14% ETA 00:00:12 cycle 36102 of 250000
+15:34:47  31% ETA 00:00:10 cycle 79411 of 250000
+15:34:51  53% ETA 00:00:06 cycle 132624 of 250000
+15:34:55  79% ETA 00:00:02 cycle 199759 of 250000
+15:34:57 100% ETA 00:00:00 cycle 249999 of 250000
+
+
+[Rank 0] Collect results: Waiting for all mpi-threads to finish accumulating...
+[Rank 0] Timings for all measures:
+Measure                                    | seconds   
+Auto-correlation time                      | 0.0762344 
+Average order                              | 0.00925603
+Average sign                               | 0.00779799
+Density Matrix for local static observable | 0.323064  
+G_tau measure                              | 0.0443571 
+Total measure time                         | 0.46071   
+[Rank 0] Acceptance rate for all moves:
+Move set Insert two operators: 0.117561
+  Move  Insert Delta_down_0: 0.117604
+  Move  Insert Delta_up_0: 0.117519
+Move set Remove two operators: 0.117458
+  Move  Remove Delta_down_0: 0.11755
+  Move  Remove Delta_up_0: 0.117365
+Move set Insert four operators: 0.0274651
+  Move  Insert Delta_down_0_down_0: 0.0218596
+  Move  Insert Delta_down_0_up_0: 0.0330931
+  Move  Insert Delta_up_0_down_0: 0.0332277
+  Move  Insert Delta_up_0_up_0: 0.0216818
+Move set Remove four operators: 0.0275075
+  Move  Remove Delta_down_0_down_0: 0.0217754
+  Move  Remove Delta_down_0_up_0: 0.0332884
+  Move  Remove Delta_up_0_down_0: 0.0331962
+  Move  Remove Delta_up_0_up_0: 0.0217688
+[Rank 0] Warmup lasted: 0.570127 seconds [00:00:00]
+[Rank 0] Simulation lasted: 14.7132 seconds [00:00:14]
+[Rank 0] Number of measures: 250000
+Total number of measures: 2000000
+Average sign: 1
+Average order: 3.28684
+Auto-correlation time: 1.19497
+Actual time for solver: 15.63 s
+
+Total charge of impurity problem: 0.99488
+Total charge convergency of impurity problem: -0.00519
+
+Density matrix:
+down_0, real part
+[[0.49628555]]
+eigenvalues: [0.49628555]
+up_0, real part
+[[0.49859943]]
+eigenvalues: [0.49859943]
+
+ *** Post-processing the solver output ***
+Total charge of all correlated shells : 0.994885
+
+
+sumk calc_mu: Using dichtomy adjustment to find chemical potential
+
+Dichotomy adjustment of Chemical Potential to obtain Total Density = 1.000000 +/- 0.000100
+Warning: Imaginary part in density will be ignored (6.037936331587002e-14)
+Warning: Imaginary part in density will be ignored (5.909600000532639e-14)
+    Chemical Potential = 13.397023  
+    Total Density = 1.185786
+    12.897023 < Chemical Potential < 13.397023
+    0.994822 < Total Density < 1.185786
+Warning: Imaginary part in density will be ignored (5.930269474312984e-14)
+    12.897023 < Chemical Potential < 12.910581
+    0.994822 < Total Density < 1.000101
+Warning: Imaginary part in density will be ignored (5.936348670782947e-14)
+    12.897023 < Chemical Potential < 12.910322
+    0.994822 < Total Density < 1.000000
+    Chemical Potential found in 3 iterations : 
+    Total Density = 1.000000;Chemical Potential = 12.910322
+Mixing dichotomy mu with previous iteration by factor 1.000
+New chemical potential: 12.910
+
+ *** calculation of observables ***
+*** iteration finished ***
+============================================================
+summary of impurity observables:
+total occupany of impurity 0:  0.9949
+G(beta/2) occ of impurity 0:  -0.1094
+Z (simple estimate) of impurity 0 per orb:
+   up:  0.922
+ down:  0.922
+============================================================
+
+============================================================
+convergence:
+δμ:      9.1909e-03
+Impurity 0:
+δn imp : 1.9845e-03
+δn orb : 1.9845e-03
+δ Gimp : 7.0789e-03
+δ G0   : 1.8189e-03
+δ Σ    : 4.8284e-02
+============================================================
+
+
+################################################################################
+Running iteration: 5 / 6
+
+ *** Correlated Shell type #  0 : Estimated total charge of impurity problem = 1.000000
+Estimated density matrix:
+down_0, real part
+[[0.50000001]]
+up_0, real part
+[[0.50000001]]
+
+ Using the delta interface for cthyb passing Delta(tau) and Hloc0 directly.
+
+Solving the impurity problem for shell 0 ...
+
+╔╦╗╦═╗╦╔═╗ ╔═╗  ┌─┐┌┬┐┬ ┬┬ ┬┌┐ 
+ ║ ╠╦╝║║═╬╗╚═╗  │   │ ├─┤└┬┘├┴┐
+ ╩ ╩╚═╩╚═╝╚╚═╝  └─┘ ┴ ┴ ┴ ┴ └─┘
+
+The local Hamiltonian of the problem:
+-1.81439*c_dag('down_0',0)*c('down_0',0) + -1.81439*c_dag('up_0',0)*c('up_0',0) + 3.6*c_dag('down_0',0)*c_dag('up_0',0)*c('up_0',0)*c('down_0',0)
+Using autopartition algorithm to partition the local Hilbert space
+Found 4 subspaces.
+
+Warming up ...
+15:34:58  17% ETA 00:00:00 cycle 1796 of 10000
+15:34:59 100% ETA 00:00:00 cycle 9999 of 10000
+
+
+
+Accumulating ...
+15:34:59   0% ETA 00:00:15 cycle 1594 of 250000
+15:35:01  14% ETA 00:00:12 cycle 36833 of 250000
+15:35:03  32% ETA 00:00:09 cycle 80972 of 250000
+15:35:07  54% ETA 00:00:06 cycle 135794 of 250000
+15:35:11  81% ETA 00:00:02 cycle 204382 of 250000
+15:35:13 100% ETA 00:00:00 cycle 249999 of 250000
+
+
+[Rank 0] Collect results: Waiting for all mpi-threads to finish accumulating...
+[Rank 0] Timings for all measures:
+Measure                                    | seconds   
+Auto-correlation time                      | 0.0756819 
+Average order                              | 0.00920432
+Average sign                               | 0.00707245
+Density Matrix for local static observable | 0.318652  
+G_tau measure                              | 0.0438868 
+Total measure time                         | 0.454498  
+[Rank 0] Acceptance rate for all moves:
+Move set Insert two operators: 0.117263
+  Move  Insert Delta_down_0: 0.117254
+  Move  Insert Delta_up_0: 0.117273
+Move set Remove two operators: 0.117231
+  Move  Remove Delta_down_0: 0.117205
+  Move  Remove Delta_up_0: 0.117256
+Move set Insert four operators: 0.027235
+  Move  Insert Delta_down_0_down_0: 0.0215306
+  Move  Insert Delta_down_0_up_0: 0.032939
+  Move  Insert Delta_up_0_down_0: 0.0329298
+  Move  Insert Delta_up_0_up_0: 0.0215448
+Move set Remove four operators: 0.0272423
+  Move  Remove Delta_down_0_down_0: 0.0214874
+  Move  Remove Delta_down_0_up_0: 0.0330037
+  Move  Remove Delta_up_0_down_0: 0.0329666
+  Move  Remove Delta_up_0_up_0: 0.021508
+[Rank 0] Warmup lasted: 0.557594 seconds [00:00:00]
+[Rank 0] Simulation lasted: 14.4213 seconds [00:00:14]
+[Rank 0] Number of measures: 250000
+Total number of measures: 2000000
+Average sign: 1
+Average order: 3.23979
+Auto-correlation time: 1.39096
+Actual time for solver: 15.40 s
+
+Total charge of impurity problem: 0.99670
+Total charge convergency of impurity problem: -0.00330
+
+Density matrix:
+down_0, real part
+[[0.49749906]]
+eigenvalues: [0.49749906]
+up_0, real part
+[[0.4992018]]
+eigenvalues: [0.4992018]
+
+ *** Post-processing the solver output ***
+Total charge of all correlated shells : 0.996701
+
+
+sumk calc_mu: Using dichtomy adjustment to find chemical potential
+
+Dichotomy adjustment of Chemical Potential to obtain Total Density = 1.000000 +/- 0.000100
+Warning: Imaginary part in density will be ignored (5.808225798980683e-14)
+Warning: Imaginary part in density will be ignored (6.050378439398525e-14)
+    Chemical Potential = 13.410322  
+    Total Density = 1.185746
+    12.910322 < Chemical Potential < 13.410322
+    0.996835 < Total Density < 1.185746
+Warning: Imaginary part in density will be ignored (5.942851261364071e-14)
+    12.910322 < Chemical Potential < 12.918698
+    0.996835 < Total Density < 1.000059
+    Chemical Potential found in 2 iterations : 
+    Total Density = 1.000059;Chemical Potential = 12.918698
+Mixing dichotomy mu with previous iteration by factor 1.000
+New chemical potential: 12.919
+
+ *** calculation of observables ***
+*** iteration finished ***
+============================================================
+summary of impurity observables:
+total occupany of impurity 0:  0.9967
+G(beta/2) occ of impurity 0:  -0.1045
+Z (simple estimate) of impurity 0 per orb:
+   up:  0.982
+ down:  0.982
+============================================================
+
+============================================================
+convergence:
+δμ:      1.3299e-02
+Impurity 0:
+δn imp : 1.8159e-03
+δn orb : 1.8159e-03
+δ Gimp : 3.9302e-03
+δ G0   : 1.6234e-03
+δ Σ    : 2.5615e-02
+============================================================
+
+
+################################################################################
+Running iteration: 6 / 6
+
+ *** Correlated Shell type #  0 : Estimated total charge of impurity problem = 1.000059
+Estimated density matrix:
+down_0, real part
+[[0.50002948]]
+up_0, real part
+[[0.50002948]]
+
+ Using the delta interface for cthyb passing Delta(tau) and Hloc0 directly.
+
+Solving the impurity problem for shell 0 ...
+
+╔╦╗╦═╗╦╔═╗ ╔═╗  ┌─┐┌┬┐┬ ┬┬ ┬┌┐ 
+ ║ ╠╦╝║║═╬╗╚═╗  │   │ ├─┤└┬┘├┴┐
+ ╩ ╩╚═╩╚═╝╚╚═╝  └─┘ ┴ ┴ ┴ ┴ └─┘
+
+The local Hamiltonian of the problem:
+-1.82277*c_dag('down_0',0)*c('down_0',0) + -1.82277*c_dag('up_0',0)*c('up_0',0) + 3.6*c_dag('down_0',0)*c_dag('up_0',0)*c('up_0',0)*c('down_0',0)
+Using autopartition algorithm to partition the local Hilbert space
+Found 4 subspaces.
+
+Warming up ...
+15:35:14  14% ETA 00:00:00 cycle 1474 of 10000
+15:35:14 100% ETA 00:00:00 cycle 9999 of 10000
+
+
+
+Accumulating ...
+15:35:15   0% ETA 00:00:14 cycle 1671 of 250000
+15:35:17  14% ETA 00:00:12 cycle 36760 of 250000
+15:35:19  32% ETA 00:00:09 cycle 80921 of 250000
+15:35:22  54% ETA 00:00:06 cycle 136276 of 250000
+15:35:26  82% ETA 00:00:02 cycle 205223 of 250000
+15:35:29 100% ETA 00:00:00 cycle 249999 of 250000
+
+
+[Rank 0] Collect results: Waiting for all mpi-threads to finish accumulating...
+[Rank 0] Timings for all measures:
+Measure                                    | seconds   
+Auto-correlation time                      | 0.0754504 
+Average order                              | 0.00851034
+Average sign                               | 0.00818963
+Density Matrix for local static observable | 0.317583  
+G_tau measure                              | 0.0434257 
+Total measure time                         | 0.453159  
+[Rank 0] Acceptance rate for all moves:
+Move set Insert two operators: 0.117015
+  Move  Insert Delta_down_0: 0.117038
+  Move  Insert Delta_up_0: 0.116993
+Move set Remove two operators: 0.117019
+  Move  Remove Delta_down_0: 0.117005
+  Move  Remove Delta_up_0: 0.117033
+Move set Insert four operators: 0.0270843
+  Move  Insert Delta_down_0_down_0: 0.0214744
+  Move  Insert Delta_down_0_up_0: 0.0326866
+  Move  Insert Delta_up_0_down_0: 0.0327262
+  Move  Insert Delta_up_0_up_0: 0.021452
+Move set Remove four operators: 0.0270755
+  Move  Remove Delta_down_0_down_0: 0.0213882
+  Move  Remove Delta_down_0_up_0: 0.0328232
+  Move  Remove Delta_up_0_down_0: 0.0327455
+  Move  Remove Delta_up_0_up_0: 0.0213394
+[Rank 0] Warmup lasted: 0.570421 seconds [00:00:00]
+[Rank 0] Simulation lasted: 14.334 seconds [00:00:14]
+[Rank 0] Number of measures: 250000
+Total number of measures: 2000000
+Average sign: 1
+Average order: 3.21758
+Auto-correlation time: 1.23454
+Actual time for solver: 15.34 s
+
+Total charge of impurity problem: 0.99875
+Total charge convergency of impurity problem: -0.00131
+
+Density matrix:
+down_0, real part
+[[0.49777289]]
+eigenvalues: [0.49777289]
+up_0, real part
+[[0.50097924]]
+eigenvalues: [0.50097924]
+
+ *** Post-processing the solver output ***
+Total charge of all correlated shells : 0.998752
+
+
+sumk calc_mu: Using dichtomy adjustment to find chemical potential
+
+Dichotomy adjustment of Chemical Potential to obtain Total Density = 1.000000 +/- 0.000100
+Warning: Imaginary part in density will be ignored (5.727735619484537e-14)
+Warning: Imaginary part in density will be ignored (5.688940346563516e-14)
+    Chemical Potential = 13.418698  
+    Total Density = 1.186743
+    12.918698 < Chemical Potential < 13.418698
+    0.998860 < Total Density < 1.186743
+Warning: Imaginary part in density will be ignored (5.883996666191902e-14)
+    12.918698 < Chemical Potential < 12.921731
+    0.998860 < Total Density < 1.000021
+    Chemical Potential found in 2 iterations : 
+    Total Density = 1.000021;Chemical Potential = 12.921731
+Mixing dichotomy mu with previous iteration by factor 1.000
+New chemical potential: 12.922
+
+ *** calculation of observables ***
+*** iteration finished ***
+============================================================
+summary of impurity observables:
+total occupany of impurity 0:  0.9988
+G(beta/2) occ of impurity 0:  -0.1048
+Z (simple estimate) of impurity 0 per orb:
+   up:  1.014
+ down:  1.014
+============================================================
+
+============================================================
+convergence:
+δμ:      8.3758e-03
+Impurity 0:
+δn imp : 2.0513e-03
+δn orb : 2.0513e-03
+δ Gimp : 2.3908e-03
+δ G0   : 1.0742e-03
+δ Σ    : 1.8783e-02
+============================================================
+
+
+** All requested iterations finished ***
+################################################################################
+--------------------------------------------------------------------------------
+overall elapsed time:    99.1476 seconds
